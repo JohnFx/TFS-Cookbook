@@ -1,4 +1,0 @@
-C:\Program Files\Microsoft Team Foundation Server 12.0\Application Tier\Web Services\bin\Plugins\TFS_EventHandlers.dll
-C:\Program Files\Microsoft Team Foundation Server 12.0\Application Tier\Web Services\bin\Plugins\TFS_EventHandlers.pdb
-C:\Users\John\documents\visual studio 2012\Projects\TFS_ApplyTemplateHandler\TFS_ApplyTemplateHandler\obj\Debug\TFS_EventHandlers.dll
-C:\Users\John\documents\visual studio 2012\Projects\TFS_ApplyTemplateHandler\TFS_ApplyTemplateHandler\obj\Debug\TFS_EventHandlers.pdb
