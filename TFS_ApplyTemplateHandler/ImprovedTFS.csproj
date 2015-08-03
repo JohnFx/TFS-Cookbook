@@ -7,8 +7,8 @@
     <ProjectGuid>{E003560E-499B-47B3-8A4D-A10FC9B6967A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TFS_EventHandlers</RootNamespace>
-    <AssemblyName>TFS_EventHandlers</AssemblyName>
+    <RootNamespace>ImprovedTFS</RootNamespace>
+    <AssemblyName>ImprovedTFS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

@@ -6,7 +6,7 @@ using Microsoft.TeamFoundation.WorkItemTracking.Server;
 
 //todo: Should this be able to copy template children more than one level deep? It currently does not.
 
-namespace TFS_EventHandlers
+namespace ImprovedTFS
 {
     /// <summary>
     /// This class represents an event handler that is subscribed to TFS event notifications

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.Services.Identity;
 using Microsoft.TeamFoundation.Common;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 
-namespace TFS_EventHandlers {
+namespace ImprovedTFS {
     public class TFSHelper {
 
         #region Member Properties
