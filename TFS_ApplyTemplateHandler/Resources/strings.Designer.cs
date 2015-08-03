@@ -68,5 +68,14 @@ namespace TFS_EventHandlers.Resources {
                 return ResourceManager.GetString("HISTORYTEXT_CLONED", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TFS Template.
+        /// </summary>
+        internal static string TEMPLATE_TAG {
+            get {
+                return ResourceManager.GetString("TEMPLATE_TAG", resourceCulture);
+            }
+        }
     }
 }

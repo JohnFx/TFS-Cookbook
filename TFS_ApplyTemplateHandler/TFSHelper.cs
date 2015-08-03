@@ -32,8 +32,21 @@ namespace TFS_EventHandlers {
 
         public WorkItem getTemplateForWorkItem(WorkItem workItem)
         {
-            //todo: implement some kind of system to query the correct template.
-            return getWorkItem(17472);
+            // Run a query.
+            WorkItemCollection queryResults = workItemStore.Query(string.Format(
+               "Select [System.ID], [System.Tags] " +
+               "From WorkItems " +
+               "Where ([Work Item Type] = '{0}') " +
+               "and ([System.TeamProject] = '{1}') " +  
+               "and ([Tags] contains '" + Resources.strings.TEMPLATE_TAG + "')", 
+               getWorkItemType(workItem), teamProject.Name)); 
+            
+            if (queryResults.Count > 0) {
+                return queryResults[0];                 
+            }
+            else {                
+                return null; //no template found
+            }            
         }
     
         public string getWorkItemType(WorkItem workItem) {
@@ -47,8 +60,8 @@ namespace TFS_EventHandlers {
 
         public bool isWorkItemEligibleForClone(WorkItem workItem) {
             return
-                   !isClonedWorkItem(workItem) &&
-                   !getWorkItemType(workItem).Equals("Task");
+                   !isClonedWorkItem(workItem) &&                   
+                   !workItem["Tags"].ToString().Contains(Resources.strings.TEMPLATE_TAG);
         }
 
         /// <summary>
@@ -77,22 +90,26 @@ namespace TFS_EventHandlers {
             WorkItemLinkTypeEnd parentLinkType =  workItemStore.WorkItemLinkTypes.LinkTypeEnds["Parent"];
 
             foreach(WorkItemLink itemLInk in templateWorkItem.WorkItemLinks) {
+
                 if ((itemLInk.BaseType == BaseLinkType.WorkItemLink) && (itemLInk.LinkTypeEnd == childLinkType)) {
-                    WorkItem copyWorkItem = getWorkItem(itemLInk.TargetId);
-                   WorkItem newWorkItem =  copyWorkItem.Copy();
+                   WorkItem copyWorkItem = getWorkItem(itemLInk.TargetId);
 
-                    newWorkItem.Title = string.Format("{0}:{1}",newWorkItem.Title,parentWorkItem.Title);
-                    newWorkItem.IterationId = parentWorkItem.IterationId; 
-                    newWorkItem.Links.Clear();
-                    
-                    clearHistoryFromWorkItem(newWorkItem);
+                    if (!copyWorkItem["State"].Equals("Removed")) {
+                        WorkItem newWorkItem = copyWorkItem.Copy();
 
-                    //This history entry is added to the new items to prevent recursion on newly created items.
-                    newWorkItem.History=Resources.strings.HISTORYTEXT_CLONED;
-                    
-                    WorkItemLinkTypeEnd linkTypeEnd = parentLinkType;
-                    newWorkItem.Links.Add(new RelatedLink(linkTypeEnd, parentWorkItem.Id));
-                    newWorkItem.Save();
+                        newWorkItem.Title =  newWorkItem.Title;
+                        newWorkItem.IterationId = parentWorkItem.IterationId;
+                        newWorkItem.Links.Clear();
+
+                        clearHistoryFromWorkItem(newWorkItem);
+
+                        //This history entry is added to the new items to prevent recursion on newly created items.
+                        newWorkItem.History = Resources.strings.HISTORYTEXT_CLONED;
+
+                        WorkItemLinkTypeEnd linkTypeEnd = parentLinkType;
+                        newWorkItem.Links.Add(new RelatedLink(linkTypeEnd, parentWorkItem.Id));
+                        newWorkItem.Save();
+                    }
                 }
             }
         }
@@ -125,12 +142,6 @@ namespace TFS_EventHandlers {
             TeamFoundationLocationService service = requestContext.GetService<TeamFoundationLocationService>();
             Uri selfReferenceUri = service.GetSelfReferenceUri(requestContext, service.GetDefaultAccessMapping(requestContext));
             return new TfsTeamProjectCollection(selfReferenceUri, cred);
-        }
-
-        public void GetLinkTypes() {
-            foreach (WorkItemLinkType type in workItemStore.WorkItemLinkTypes)  {
-                //combo_types.Items.Add(new LinkTypeItem(type));
-            }
         }
     }
 }

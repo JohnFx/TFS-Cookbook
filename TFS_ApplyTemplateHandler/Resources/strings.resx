@@ -120,4 +120,7 @@
   <data name="HISTORYTEXT_CLONED" xml:space="preserve">
     <value>Copied from template work item</value>
   </data>
+  <data name="TEMPLATE_TAG" xml:space="preserve">
+    <value>TFS Template</value>
+  </data>
 </root>

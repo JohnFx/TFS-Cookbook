@@ -4,8 +4,7 @@ using Microsoft.TeamFoundation.Common;
 using Microsoft.TeamFoundation.Framework.Server;
 using Microsoft.TeamFoundation.WorkItemTracking.Server;
 
-//todo: How to avoid triggering the template cloning code when you are creating the template item?
-//todo: current version does not copy templates more than one level deep.
+//todo: Should this be able to copy template children more than one level deep? It currently does not.
 
 namespace TFS_EventHandlers
 {
@@ -82,17 +81,16 @@ namespace TFS_EventHandlers
             if (TFSworkItemID > 0) {
                 Microsoft.TeamFoundation.WorkItemTracking.Client.WorkItem thisWorkItem = tfs.getWorkItem(TFSworkItemID);
 
-                if (thisWorkItem != null) {
-                    Microsoft.TeamFoundation.WorkItemTracking.Client.WorkItem templateWorkItem = tfs.getTemplateForWorkItem(thisWorkItem);
-                    if (tfs.isWorkItemEligibleForClone(thisWorkItem)) tfs.createChildWorkItems(thisWorkItem, templateWorkItem);                    
+                if ((thisWorkItem != null)) {
+                    if (tfs.isWorkItemEligibleForClone(thisWorkItem)) {
+                        Microsoft.TeamFoundation.WorkItemTracking.Client.WorkItem templateWorkItem = tfs.getTemplateForWorkItem(thisWorkItem);
+                        if (templateWorkItem != null) tfs.createChildWorkItems(thisWorkItem, templateWorkItem);
+                    }
                 }
-                else {
-                    throw new System.Exception(string.Format(Resources.errorMessages.UNABLETOGET_WORKITEM, TFSworkItemID.ToString()));
-                }
+                else { throw new System.Exception(string.Format(Resources.errorMessages.UNABLETOGET_WORKITEM, TFSworkItemID.ToString())); }
             }
-            else {           
-                throw new System.ArgumentException(String.Format(Resources.errorMessages.ERROR_INVALID_WORK_ITEMID, TFSworkItemID.ToString()));
-            }
+            else {throw new System.ArgumentException(String.Format(Resources.errorMessages.ERROR_INVALID_WORK_ITEMID, TFSworkItemID.ToString()));}
+
             return EventNotificationStatus.ActionPermitted; //allows the action if no other subscribers reject.
         }
 
