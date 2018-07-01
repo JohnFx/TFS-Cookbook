@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ImprovedTFS.Tests")]
+[assembly: AssemblyTitle("TFSCookbook.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Windows User")]
-[assembly: AssemblyProduct("ImprovedTFS.Tests")]
+[assembly: AssemblyProduct("TFSCookbook.Tests")]
 [assembly: AssemblyCopyright("Copyright © Windows User 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ImprovedTFS.Tests
+namespace TFSCookbook.Tests
 {
     [TestClass]
-    public class WorkItemCreatedHandlerTests
+    public class THSHelperTests
     {
         [TestMethod]
         public void TestMethod1() {

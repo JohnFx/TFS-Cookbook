@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Improved TFS Event Handlers")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("TFS Cookbook")]
+[assembly: AssemblyDescription("Adds a templating capability to TFS Work Items")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Improving Software")]
-[assembly: AssemblyProduct("Improved TFS")]
-[assembly: AssemblyCopyright("Copyright John Fuex 2015")]
+[assembly: AssemblyProduct("TFS Cookbook")]
+[assembly: AssemblyCopyright("Copyright John Fuex 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

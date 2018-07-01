@@ -1,11 +1,13 @@
 ﻿using System;
-using Microsoft.TeamFoundation.Client;
-using Microsoft.TeamFoundation.Framework.Server;
-using Microsoft.VisualStudio.Services.Identity;
-using Microsoft.TeamFoundation.Common;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
+using Microsoft.TeamFoundation.Framework.Server;
 
-namespace ImprovedTFS {
+using Microsoft.TeamFoundation.Client;
+using Microsoft.TeamFoundation.Framework.Client;
+using Microsoft.TeamFoundation.Framework.Common;
+using Microsoft.TeamFoundation.Common;
+
+namespace TFSCookbook {
     public class TFSHelper {
 
         #region Member Properties
@@ -136,7 +138,7 @@ namespace ImprovedTFS {
             //todo: Avoid hardcoding credentials.
             System.Net.ICredentials cred = new System.Net.NetworkCredential("John", "cheese");
 
-            IdentityDescriptor id; requestContext.GetAuthenticatedIdentity(out id);
+            Microsoft.VisualStudio.Services.Identity.IdentityDescriptor id; requestContext.GetAuthenticatedIdentity(out id);
             //ICredentialsProvider c = requestContext.GetAuthenticatedIdentity
 
             TeamFoundationLocationService service = requestContext.GetService<TeamFoundationLocationService>();

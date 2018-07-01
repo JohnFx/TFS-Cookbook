@@ -2,12 +2,14 @@
 using System.Linq;
 using Microsoft.TeamFoundation.Common;
 using Microsoft.TeamFoundation.Framework.Server;
+using Microsoft.TeamFoundation.Server;
 using Microsoft.TeamFoundation.WorkItemTracking.Server;
+using Microsoft.TeamFoundation.WorkItemTracking.Client;
+
 
 //todo: Should this be able to copy template children more than one level deep? It currently does not.
 
-namespace ImprovedTFS
-{
+namespace TFSCookbook {
     /// <summary>
     /// This class represents an event handler that is subscribed to TFS event notifications
     /// </summary>

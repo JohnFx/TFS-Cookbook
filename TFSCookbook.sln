@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedTFS", "TFS_ApplyTemplateHandler\ImprovedTFS.csproj", "{E003560E-499B-47B3-8A4D-A10FC9B6967A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFSCookbook", "TFS_ApplyTemplateHandler\TFSCookbook.csproj", "{E003560E-499B-47B3-8A4D-A10FC9B6967A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedTFS.Tests", "ImprovedTFS.Tests\ImprovedTFS.Tests.csproj", "{2FA44F6B-A38C-47D6-BBE6-17A57806CD73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFSCookbook.Tests", "TFSCookbook.Tests\TFSCookbook.Tests.csproj", "{2FA44F6B-A38C-47D6-BBE6-17A57806CD73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55FCC0D6-D5EB-43A8-882C-119C0D1BE3C2}
 	EndGlobalSection
 EndGlobal
