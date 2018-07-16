@@ -1,0 +1,88 @@
+use 
+C:\Users\John Fuex\Source\Repos\Ngrok.exe http 8080 to let TFS tunnel to local port for testing
+start json listener by running node test-post.js in C:\Users\John Fuex\Source\Repos\node_web_server
+inspect traffic at http://localhost:4040/inspect/http
+Instructions for auth to tfs, etc: https://docs.microsoft.com/en-us/vsts/git/how-to/create-pr-status-server?toc=/vsts/extend/toc.json&bc=/vsts/extend/breadcrumb/toc.json&view=vsts
+
+
+Sample traffic for a bug
+{
+    "subscriptionId": "17b8d996-509a-44cb-8a7e-ed86556a7bc6",
+    "notificationId": 16,
+    "id": "67df0f71-58a1-400b-a390-f097d9be9bb6",
+    "eventType": "workitem.created",
+    "publisherId": "tfs",
+    "message": {
+        "text": "Bug #1 (Testing a bug) created by John Fuex\r\n(https://johnfx.visualstudio.com/web/wi.aspx?pcguid=91c96514-9822-4787-9037-1f6a61bc6597&id=1)",
+        "html": "<a href=\"https://johnfx.visualstudio.com/web/wi.aspx?pcguid=91c96514-9822-4787-9037-1f6a61bc6597&amp;id=1\">Bug #1</a> (Testing a bug) created by John Fuex",
+        "markdown": "[Bug #1](https://johnfx.visualstudio.com/web/wi.aspx?pcguid=91c96514-9822-4787-9037-1f6a61bc6597&id=1) (Testing a bug) created by John Fuex"
+    },
+    "detailedMessage": {
+        "text": "Bug #1 (Testing a bug) created by John Fuex\r\n(https://johnfx.visualstudio.com/web/wi.aspx?pcguid=91c96514-9822-4787-9037-1f6a61bc6597&id=1)\r\n\r\n- Area: TFS Cookbook\r\n- Iteration: TFS Cookbook\r\n- State: New\r\n- Severity: 3 - Medium\r\n",
+        "html": "<a href=\"https://johnfx.visualstudio.com/web/wi.aspx?pcguid=91c96514-9822-4787-9037-1f6a61bc6597&amp;id=1\">Bug #1</a> (Testing a bug) created by John Fuex<ul>\r\n<li>Area: TFS Cookbook</li>\r\n<li>Iteration: TFS Cookbook</li>\r\n<li>State: New</li>\r\n<li>Severity: 3 - Medium</li></ul>",
+        "markdown": "[Bug #1](https://johnfx.visualstudio.com/web/wi.aspx?pcguid=91c96514-9822-4787-9037-1f6a61bc6597&id=1) (Testing a bug) created by John Fuex\r\n\r\n* Area: TFS Cookbook\r\n* Iteration: TFS Cookbook\r\n* State: New\r\n* Severity: 3 - Medium\r\n"
+    },
+    "resource": {
+        "id": 1,
+        "rev": 1,
+        "fields": {
+            "System.AreaPath": "TFS Cookbook",
+            "System.TeamProject": "TFS Cookbook",
+            "System.IterationPath": "TFS Cookbook",
+            "System.WorkItemType": "Bug",
+            "System.State": "New",
+            "System.Reason": "New",
+            "System.CreatedDate": "2018-07-16T02:01:35.437Z",
+            "System.CreatedBy": "John Fuex <john.fuex@gmail.com>",
+            "System.ChangedDate": "2018-07-16T02:01:35.437Z",
+            "System.ChangedBy": "John Fuex <john.fuex@gmail.com>",
+            "System.Title": "Testing a bug",
+            "Microsoft.VSTS.Common.Priority": 2,
+            "Microsoft.VSTS.Common.StateChangeDate": "2018-07-16T02:01:35.437Z",
+            "Microsoft.VSTS.Common.Severity": "3 - Medium",
+            "Microsoft.VSTS.Common.ValueArea": "Business",
+            "Microsoft.VSTS.TCM.SystemInfo": "System info",
+            "Microsoft.VSTS.TCM.ReproSteps": "Repro steps section"
+        },
+        "_links": {
+            "self": {
+                "href": "https://johnfx.visualstudio.com/537fa263-07ed-407d-aa17-66e70dd2211f/_apis/wit/workItems/1"
+            },
+            "workItemUpdates": {
+                "href": "https://johnfx.visualstudio.com/537fa263-07ed-407d-aa17-66e70dd2211f/_apis/wit/workItems/1/updates"
+            },
+            "workItemRevisions": {
+                "href": "https://johnfx.visualstudio.com/537fa263-07ed-407d-aa17-66e70dd2211f/_apis/wit/workItems/1/revisions"
+            },
+            "workItemComments": {
+                "href": "https://johnfx.visualstudio.com/537fa263-07ed-407d-aa17-66e70dd2211f/_apis/wit/workItems/1/comments"
+            },
+            "html": {
+                "href": "https://johnfx.visualstudio.com/web/wi.aspx?pcguid=91c96514-9822-4787-9037-1f6a61bc6597&id=1"
+            },
+            "workItemType": {
+                "href": "https://johnfx.visualstudio.com/537fa263-07ed-407d-aa17-66e70dd2211f/_apis/wit/workItemTypes/Bug"
+            },
+            "fields": {
+                "href": "https://johnfx.visualstudio.com/537fa263-07ed-407d-aa17-66e70dd2211f/_apis/wit/fields"
+            }
+        },
+        "url": "https://johnfx.visualstudio.com/537fa263-07ed-407d-aa17-66e70dd2211f/_apis/wit/workItems/1"
+    },
+    "resourceVersion": "1.0",
+    "resourceContainers": {
+        "collection": {
+            "id": "91c96514-9822-4787-9037-1f6a61bc6597",
+            "baseUrl": "https://johnfx.visualstudio.com/"
+        },
+        "account": {
+            "id": "22c31faf-8fb7-4c63-bb58-15f8ce1352cf",
+            "baseUrl": "https://johnfx.visualstudio.com/"
+        },
+        "project": {
+            "id": "537fa263-07ed-407d-aa17-66e70dd2211f",
+            "baseUrl": "https://johnfx.visualstudio.com/"
+        }
+    },
+    "createdDate": "2018-07-16T02:01:38.182176Z"
+}Ex
